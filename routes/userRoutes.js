@@ -1,7 +1,8 @@
 const express = require("express");
 const User = require("../models/userModel")
 const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken")
+const jwt = require("jsonwebtoken");
+const { route } = require("./productRoutes");
 const router = express.Router();
 
 // register user
@@ -20,6 +21,7 @@ router.post("/register", async (req, res) => {
     res.status(201).send({ _id: newUser.id, username: newUser.username, email: newUser.email })
 })
 
+route.post("/", (req, e))
 router.post("/login", async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) return res.status(400).send('Please enter all fields')

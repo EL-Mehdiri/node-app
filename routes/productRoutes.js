@@ -4,6 +4,7 @@ const router = express.Router();
 const Product = require("../models/productModel");
 const validateToken = require("../middleware/validateToken");
 router.use(validateToken)
+
 // get products
 router.get("/", async (req, res) => {
     const products = await Product.find({ user_id: req.user.id });
